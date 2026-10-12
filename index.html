@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home | Bảng điều khiển</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">DỰ ÁN IOT · STM32F4 + ESP8266</p>
+      <h1>Smart Home</h1>
+    </div>
+    <div class="connection">
+      <span id="connectionDot" class="dot offline"></span>
+      <span id="connectionText">Chưa kết nối API</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">TỔNG QUAN</p>
+        <h2>Xin chào!</h2>
+        <p>Quản lý thiết bị và theo dõi trạng thái ngôi nhà của bạn.</p>
+      </div>
+      <div class="clock">
+        <span id="currentTime">--:--:--</span>
+        <small id="currentDate">Đang tải ngày...</small>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Thiết bị của tôi</h2>
+        <p>Bản demo giao diện — trạng thái ban đầu chỉ là dữ liệu mẫu.</p>
+      </div>
+      <button id="refreshButton" class="button secondary" type="button">Làm mới trạng thái</button>
+    </section>
+
+    <section class="device-grid">
+      <article class="device-card">
+        <div class="device-icon" aria-hidden="true">💡</div>
+        <div class="device-info">
+          <h3>Đèn phòng khách</h3>
+          <p id="lightStatus" class="device-status">Đang tắt</p>
+        </div>
+        <button class="toggle" id="lightToggle" type="button" role="switch"
+                aria-checked="false" aria-label="Bật hoặc tắt đèn phòng khách">
+          <span></span>
+        </button>
+      </article>
+
+      <article class="device-card">
+        <div class="device-icon" aria-hidden="true">🌀</div>
+        <div class="device-info">
+          <h3>Quạt</h3>
+          <p id="fanStatus" class="device-status">Đang tắt</p>
+        </div>
+        <button class="toggle" id="fanToggle" type="button" role="switch"
+                aria-checked="false" aria-label="Bật hoặc tắt quạt">
+          <span></span>
+        </button>
+      </article>
+
+      <article class="device-card sensor-card">
+        <div class="device-icon" aria-hidden="true">🌡️</div>
+        <div class="device-info">
+          <h3>Nhiệt độ</h3>
+          <p class="sensor-value"><span id="temperature">--</span><span> °C</span></p>
+          <p class="muted">Dữ liệu từ cảm biến (chưa kết nối)</p>
+        </div>
+      </article>
+
+      <article class="device-card sensor-card">
+        <div class="device-icon" aria-hidden="true">💧</div>
+        <div class="device-info">
+          <h3>Độ ẩm</h3>
+          <p class="sensor-value"><span id="humidity">--</span><span> %</span></p>
+          <p class="muted">Dữ liệu từ cảm biến (chưa kết nối)</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="api-panel">
+      <div>
+        <p class="eyebrow">KẾT NỐI DỮ LIỆU</p>
+        <h2>API status</h2>
+        <p id="apiMessage">Đang dùng chế độ demo. Chưa gửi lệnh đến thiết bị thật.</p>
+      </div>
+      <button id="demoButton" class="button primary" type="button">Thử cập nhật demo</button>
+    </section>
+
+    <p class="safety-note">
+      Lưu ý: nút bật/tắt hiện chỉ thay đổi giao diện. Chưa điều khiển relay hoặc thiết bị điện thật.
+    </p>
+  </main>
+
+  <footer>
+    <p>Smart Home · Website demo cho dự án STM32F4 + ESP8266</p>
+  </footer>
+</body>
+</html>
